@@ -1,0 +1,37 @@
+npm init -y
+
+npm i express@5.1.0 dotenv@17.2.1 mongoose@8.16.5 cors@2.8.5
+
+npm i -D nodemon
+
+
+
+************************
+
+/frontend -> npm create vite@latest .
+
+/backend -> npm init -y
+
+/backend -> npm i express mongoose dotenv jsonwebtoken bcryptjs cookie-parser cloudinary socket.io
+
+/backend -> npm i nodemon -D
+
+package.json -> "scripts": {"dev": "nodemon index.js"},
+
+package.json -> "type": "module", 추가 후 const express = require("express"); -> import express from "express"; 형태로 사용가능
+
+/backend/src -> controllers, lib, middleware, models, routes 폴더 생성
+
+create mongodb with Docker
+docker run -d -p 30001:27018 --name slack_clone -v /Users/root1/Desktop/docker_v/slack_clone:/data/db -e MONGODB_INITDB_ROOT_USERNAME=root -e MONGODB_INITDB_ROOT_PASSWORD=1234 mongo
+
+*backend는 기본적으로 router -> model -> controller 순으로 작성 
+
+/frontend -> npm i react-router-dom react-hot-toast
+
+/frontend ->npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+/frontend -> npm i -D daisyui@latest -> Add daisyUI to tailwind.config.js:
+
+/frontend -> npm i axios zustand
