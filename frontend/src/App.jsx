@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useAuth } from "@clerk/clerk-react";
+import { Navigate, Route, Routes } from "react-router";
 
-function App() {
-  const [count, setCount] = useState(0)
+import * as Sentry from "@sentry/react";
+
+//래 쓰던 Routes 대신 SentryRoutes를 쓰게 되고, 그 안에서 페이지 이동, 에러 발생, 성능 트레이스 등이 Sentry에 자동으로 기록
+const SentryRoutes = Sentry.withSentryReactRouterV7Routing(Routes)
+
+const App = () => {
+  const { isSignedIn, isLoaded } = useAuth();
+
+  if( !isLoaded ) {
+    return null
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <SentryRoutes>
+      {/* replace 속성을 주면 브라우저 히스토리 스택에 새로운 기록을 남기지 않고 현재 항목을 교체 */}
+      <Route path="/" element={isSignedIn ? <HomePage /> : <Navigate to={"/auth"} replace />} />
+      <Route path="/auth" element={isSignedIn ? <AuthPage /> : <Navigate to={"/"} replace />} />
+
+      <Route path="/call/:id" element={isSignedIn ? <CallPage /> : <Navigate to={"/auth"} replace />} />
+      {/* "*" 정의되지 않은 경로의 매핑 */}
+      <Route path="*" element={isSignedIn ? <Navigate to={"/"} replace /> : <Navigate to={"/auth"} replace />} />
+    </SentryRoutes>
+  );
+};
 
 export default App
