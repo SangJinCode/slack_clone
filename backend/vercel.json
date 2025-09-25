@@ -1,0 +1,19 @@
+// Vercel은 배포할 때 이 파일을 읽어서, 어떤 파일을 빌드할지 / 어떤 라우팅을 할지 / 환경 변수를 어떻게 적용할지 등을 결정
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
