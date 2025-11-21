@@ -14,6 +14,7 @@ import * as Sentry from "@sentry/node";
 const app = express();
 
 app.use(express.json()); //req.body
+app.use(cors({origin:ENV.CLIENT_URL, credentials: true}));
 app.use(clerkMiddleware()) //인증 토큰 확인 후 req.auth 같은 인증 정보를 추가하는 미들웨어가 체인에 등록됨.
 
 app.get("/debug-sentry", (req, res) => {

@@ -1,9 +1,12 @@
 import React from 'react'
+import { LoaderIcon } from "lucide-react";
 
 const PageLoader = () => {
   return (
-    <div>PageLoader</div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-800">
+        <LoaderIcon className='text-white animate-spin size-10 text-primary' />
+    </div>
   )
 }
 
-export default PageLoader
+export default PageLoader;
