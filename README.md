@@ -1,0 +1,21 @@
+
+PORT=5001
+
+MONGO_URI=mongodb+srv://root:fcu2WG5XnGZTfYL7@cluster0.xtjjbo0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+NODE_ENV=development
+
+CLERK_PUBLISHABLE_KEY=pk_test_bWFnbmV0aWMtd2FsbGV5ZS00MS5jbGVyay5hY2NvdW50cy5kZXYk
+CLERK_SECRET_KEY=sk_test_LZj957kDX1v11x6umdTNGQwAjMXsVN4BaRIV1Hxwzc
+
+STREAM_API_KEY=ffwbmg58zgkf
+STREAM_API_SECRET=4jq55xjrc97pcsdukc4za4dn8pmn455xskmrg5rp4buhfvufnvyj8uk5pf435gpw
+
+SENTRY_DSN=https://e3afe1bf93f2a65dd6bd7ec7abc1000a@o4510039487741952.ingest.us.sentry.io/4510039493181440
+
+INNGEST_EVENT_KEY=JP8lRmHgSYikdlIkTBdpJvAwYcYQI9_LaEDgrB2fABMI-gbLY9F9wGKkMmctaI2mSwc9Dsjg-wVa7cAwfzm6oQ
+INNGEST_SIGNING_KEY=signkey-prod-3e6d37a4894855ca56f38feb5bba1a99e436f88db2ad104ec19460115a687001
+
+CLIENT_URL=http://localhost:5173
+
+root fcu2WG5XnGZTfYL7
